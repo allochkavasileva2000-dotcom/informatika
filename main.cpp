@@ -16,6 +16,6 @@ int main() {
     std::cout<<"C = "<< C <<std::endl;
     
     
+    
 return 0;
 }
-    
