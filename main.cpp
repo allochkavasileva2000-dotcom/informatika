@@ -1,21 +1,35 @@
+#include <SFML/Graphics.hpp>
 #include <iostream>
-#include <locale>
-#include <cmath>
-
 
 int main() {
-    setlocale(LC_ALL,"Russian");
-    float x,y;
-    std::cout<< "введите x , y" << std::endl;
-    std::cin >> x >> y;
-    float R = (-x-sqrt(pow(x,2) - 4*x*y))/(2*y);
-    float S = log(pow(2,x)) - tan(fmin(x,y));
-    std::cout<< "R = "<< R << std::endl;
-    std::cout<< "S = "<< S << std::endl;
-    float C = fmax(R,S);
-    std::cout<<"C = "<< C <<std::endl;
+    std::cout << "Запуск SFML 3.0..." << std::endl;
     
+    // Создаём окно
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML 3.0 Test");
     
+    // Круг для демонстрации
+    sf::CircleShape circle(100.f);
+    circle.setFillColor(sf::Color::Green);
+    circle.setPosition(300, 200);
     
-return 0;
+    std::cout << "Окно создано!" << std::endl;
+    
+    // Главный цикл
+    while (window.isOpen()) {
+        // Обработка событий - ПРАВИЛЬНЫЙ синтаксис для SFML 3.0
+        sf::Event event;
+        while (window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                window.close();
+            }
+        }
+        
+        // Отрисовка
+        window.clear(sf::Color::Black);
+        window.draw(circle);
+        window.display();
+    }
+    
+    std::cout << "Программа завершена." << std::endl;
+    return 0;
 }
