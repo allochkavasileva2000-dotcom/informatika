@@ -1,0 +1,23 @@
+A = [int(i) for i in input("введите 5 чисел для A: ").split()]
+B = [int(i) for i in input("введите 5 чисел для B: ").split()]
+
+print("Исходный массив А: ", A)
+print("Исходный массив B: ", B)
+
+def maxim_element(arr):
+    max_el = arr[0]
+    for x in arr[1:]:
+        if x > max_el:
+            max_el = x
+    return max_el
+
+def raznost(arr, max_el):
+    for i in range(len(arr)):
+        arr[i] -= max_el
+    return arr
+
+maxA = maxim_element(A)
+maxB = maxim_element(B)
+
+print("Преобразованный массив A: ",raznost(A,maxA) )
+print("Преобразованный массив B: ", raznost(B,maxB))
