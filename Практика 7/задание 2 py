@@ -1,0 +1,16 @@
+A = set(int(i) for i in input("Введите 5 элементов множества A: ").split())
+B = set(int(i) for i in input("Введите 5 элементов множества B: ").split())
+
+
+def set_difference(b, a):
+    result = b - a
+    if result:
+        print("Наименьший элемент, который есть в B, но нет в A: ", min(result))
+    else:
+        print('Все элементы B есть в A')
+
+set_difference(B, A)
+
+
+
+
